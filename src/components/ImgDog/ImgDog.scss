@@ -1,11 +1,10 @@
-.img-dog{
-  cursor: pointer;
-  &:hover{
-    opacity: 0.8;
-  }
-}
-
 .breedDog {
+  img{
+    cursor: pointer;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
   &.loaded {
     background-image: none;
   }
@@ -19,6 +18,9 @@
     object-fit: contain;
     background-color: #000;
     z-index: 0;
+    &:hover{
+      opacity: 1;
+    }
 
     &::before {
       content: '';
@@ -31,6 +33,7 @@
       top: 16px;
       right: 16px;
     }
+    
   }
 
   .textClose{
