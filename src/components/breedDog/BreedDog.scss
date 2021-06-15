@@ -1,0 +1,24 @@
+.breedDog {
+  display: flex;
+  flex-direction: column;
+  padding: 5vmin 3vmin 0;
+  flex: 1 1 100%;
+
+  .grid {
+    display: grid;
+    grid-template-columns: 33.333% 33.333% 33.333%;
+    grid-auto-rows: 20vmax;
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 10px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .breedDog {
+    .grid {
+      grid-template-columns: 100%;
+      grid-auto-rows: 50vmax;
+    }
+  }
+}
