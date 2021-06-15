@@ -15,7 +15,12 @@ const mapDispatchToProps = (dispatch) =>
 
 const mapStateToProps = (state) => ({
   list: BreedListSelectors.breedListSelector(state),
-  dogsImgList: BreedSelectors.breedSelector(state)
+  isLoading: BreedListSelectors.isLoadingSelector(state),
+  errorLoading: BreedListSelectors.errorLoadingSelector(state),
+  selectedBreed: BreedListSelectors.selectedBreedSelector(state),
+  dogsImgList: BreedSelectors.breedSelector(state),
+  isLoadingBreed: BreedSelectors.isLoadingBreedSelector(state),
+  errorLoadBreed: BreedSelectors.errorLoadBreedSelector(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BreedSelect);

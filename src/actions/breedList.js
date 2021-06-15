@@ -6,16 +6,34 @@ export function fetchBreedList() {
   };
 }
 
-export function fetchBreedListSucces(list) {
+export function fetchBreedListSuccess(list) {
   return {
     type: actionsTypes.FETCH_BREED_LIST_SUCCESS,
-    payload: list,
+    list,
+    isLoading: false,
+    errorLoading: false
+  };
+}
+
+export function loadBreedListSuccess(isLoading) {
+  return {
+    type: actionsTypes.LOAD_BREED_LIST_SUCCESS,
+    isLoading
+  };
+}
+
+export function errorLoadingSuccess(errorLoading) {
+  return {
+    type: actionsTypes.ERROR_LOADING_SUCCESS,
+    errorLoading: errorLoading
   };
 }
 
 const actions = {
   fetchBreedList,
-  fetchBreedListSucces
+  fetchBreedListSuccess,
+  loadBreedListSuccess,
+  errorLoadingSuccess
 }
 
 export default actions;

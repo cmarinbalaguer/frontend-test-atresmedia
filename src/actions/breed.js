@@ -10,13 +10,31 @@ export function fetchBreed(breed) {
 export function fetchBreedSucces(dogsImgList) {
   return {
     type: actionsTypes.FETCH_BREED_SUCCESS,
-    payload: dogsImgList,
+    dogsImgList,
+    isLoadingBreed: false,
+    errorLoadBreed: false
+  };
+}
+
+export function loadBreedSucces(isLoadingBreed) {
+  return {
+    type: actionsTypes.LOAD_BREED_SUCCESS,
+    isLoadingBreed
+  };
+}
+
+export function errorLoadBreedSucces(errorLoadBreed) {
+  return {
+    type: actionsTypes.ERROR_LOAD_BREED_SUCCESS,
+    errorLoadBreed
   };
 }
 
 const actions = {
   fetchBreed,
-  fetchBreedSucces
+  fetchBreedSucces,
+  loadBreedSucces,
+  errorLoadBreedSucces
 }
 
 export default actions;

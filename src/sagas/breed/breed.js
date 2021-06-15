@@ -1,6 +1,6 @@
 import { spawn, takeEvery, call, put} from 'redux-saga/effects'
 import actionsTypes from '../../constants/actions/breed'
-import { fetchBreedSucces } from '../../actions/breed'
+import { fetchBreedSucces, loadBreedSucces, errorLoadBreedSucces } from '../../actions/breed'
 import apiBreed from '../../api/breed'
 
 export default function* initSaga() {
@@ -13,9 +13,10 @@ function* watchInit() {
 
 export function* fetchBreed ({breed}) {
   try {
+    yield put(loadBreedSucces(true));
     const response = yield call(apiBreed.getBreed, breed);
     yield put(fetchBreedSucces(response.data.message));
   } catch (e) {
-    console.error(e);
+    yield put(errorLoadBreedSucces(true));
   }
 }

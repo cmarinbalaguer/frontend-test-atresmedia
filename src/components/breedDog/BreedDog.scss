@@ -1,7 +1,7 @@
 .breedDog {
   display: flex;
   flex-direction: column;
-  padding: 5vmin 3vmin 0;
+  padding: 3vmin 3vmin 0;
   flex: 1 1 100%;
 
   .grid {
@@ -11,6 +11,10 @@
     justify-items: stretch;
     align-items: stretch;
     gap: 10px 10px;
+  }
+
+  .pagination {
+    margin-top: 20px;
   }
 }
 
