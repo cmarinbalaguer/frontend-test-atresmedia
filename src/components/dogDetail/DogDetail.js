@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ImgDog } from '../ImgDog/ImgDog';
 import { Page } from '../page/Page';
 import '../../locale/i18n'
-
+import './DogDetail.scss'
 
 export const DogDetail = () => {
 
@@ -16,7 +16,9 @@ export const DogDetail = () => {
       title={t('COMMON.DETAIL_DOG')}
       goBackLink={true}
     >
-      <ImgDog img={state.img} />
+      <div className="contentImgDetail">
+        <ImgDog img={state.img} />
+      </div>
     </Page>
   )
 }

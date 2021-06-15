@@ -84,5 +84,7 @@ BreedDog.defaultProps = {
 BreedDog.propTypes = {
   dogsImgList: PropTypes.array.isRequired,
   fetchBreed: PropTypes.func,
-  t: PropTypes.func
+  t: PropTypes.func,
+  isLoadingBreed: PropTypes.bool.isRequired,
+  errorLoadBreed: PropTypes.bool.isRequired
 };

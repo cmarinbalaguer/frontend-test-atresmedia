@@ -8,6 +8,6 @@ test('renders title app', () => {
       <App />
     </Suspense>
   );
-  const title = screen.getByText(/Dog breeds images/i);
+  const title = screen.getByText(/Imágenes de perros según su raza/i);
   expect(title).toBeInTheDocument();
 });

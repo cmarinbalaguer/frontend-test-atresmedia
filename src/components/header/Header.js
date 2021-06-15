@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AppBar, Box, IconButton, Toolbar, Typography } from "@material-ui/core"
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import './Header.scss'
 
 export const Header = ({ title, showHeaderIcons = true, goBackLink }) => {
 
@@ -36,14 +37,10 @@ export const Header = ({ title, showHeaderIcons = true, goBackLink }) => {
           </Box>
           {showHeaderIcons && 
           <IconButton onClick={langChangeHandler}>
-            <Typography style={{color: '#fff'}} variant="h5">
+            <Typography className="selectIdiom" variant="h5">
               {lang} 
             </Typography>
           </IconButton>}
-          {/*showHeaderIcons && <IconButton 
-            onClick={() => history.replace('/create-book')}>
-              <AddIcon style={{color: '#fff'}} />
-          </IconButton>*/}
       </Toolbar>
     </AppBar>
   );
