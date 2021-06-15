@@ -13,7 +13,8 @@ export const BreedDog = (
     dogsImgList,
     isLoadingBreed,
     errorLoadBreed,
-    fetchBreed
+    fetchBreed,
+    t
   }) => {
 
   const [imgList, setImgLis] = useState(dogsImgList);
@@ -65,7 +66,8 @@ export const BreedDog = (
             )
           }
           {errorLoadBreed && 
-          <ErrorRequest 
+          <ErrorRequest
+            t={t}
             errorLoading={errorLoadBreed}
             reload={fetchBreed}
           />}
@@ -81,5 +83,6 @@ BreedDog.defaultProps = {
 
 BreedDog.propTypes = {
   dogsImgList: PropTypes.array.isRequired,
-  fetchBreed: PropTypes.func
+  fetchBreed: PropTypes.func,
+  t: PropTypes.func
 };

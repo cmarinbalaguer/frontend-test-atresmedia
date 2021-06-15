@@ -1,0 +1,10 @@
+{
+  "COMMON": {
+    "TITLE": "Dog breeds images",
+    "SELECT_RAZA": "Select dog breed",
+    "DETAIL_DOG": "Detail image of dog",
+    "ERROR_LOAD_DATA": "There was an error loading the data",
+    "RETRY": "Retry",
+    "SELECT_SUBRAZA": "Select sub-breed of dog"
+  }
+}

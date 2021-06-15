@@ -9,23 +9,25 @@ export function fetchBreedList() {
 export function fetchBreedListSuccess(list) {
   return {
     type: actionsTypes.FETCH_BREED_LIST_SUCCESS,
-    list,
-    isLoading: false,
-    errorLoading: false
+    payload: {
+      list,
+      isLoading: false,
+      errorLoading: false
+    }
   };
 }
 
 export function loadBreedListSuccess(isLoading) {
   return {
     type: actionsTypes.LOAD_BREED_LIST_SUCCESS,
-    isLoading
+    payload: {isLoading}
   };
 }
 
 export function errorLoadingSuccess(errorLoading) {
   return {
     type: actionsTypes.ERROR_LOADING_SUCCESS,
-    errorLoading: errorLoading
+    payload: {errorLoading: errorLoading}
   };
 }
 

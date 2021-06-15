@@ -17,9 +17,6 @@ export default createReducer(initialState, {
 
 function actions(state, action) {
   return Object.assign({}, state, {
-    ...state,
-    list: action.list,
-    isLoading: action.isLoading,
-    errorLoading: action.errorLoading
+    ...action.payload
   });
 }

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import { BreedDog } from '../breedDog/BreedDog';
 
 import { Box, Container } from '@material-ui/core';
@@ -7,7 +8,10 @@ import { Page } from '../page/Page';
 import { Loader } from '../common/loader/Loader';
 import { ErrorRequest } from '../common/errorRequest/ErrorRequest';
 
+import '../../locale/i18n'
 import './BreedSelect.scss'
+import { InputSelect } from '../common/inputs/InputSelect';
+import { useState } from 'react';
 
 
 export const BreedSelect = (
@@ -19,12 +23,21 @@ export const BreedSelect = (
     isLoading,
     errorLoading,
     isLoadingBreed,
-    errorLoadBreed
-    //selectedBreed
+    errorLoadBreed,
+    subBreeds,
+    fetchSubBreed
   }) => {
 
+  const {t} = useTranslation();
+  const [breed, setBreed] = useState()
+
   const handleBreed = (breedId) => {
-    fetchBreed(breedId)
+    fetchBreed(breedId);
+    setBreed(breedId);
+  };
+
+  const handleSubBreed = (subBreed) => {
+    fetchSubBreed(subBreed, breed);
   };
 
   useEffect(() => {
@@ -33,7 +46,7 @@ export const BreedSelect = (
 
   return (
     <Page
-      title="Dog breeds images"
+      title={t('COMMON.TITLE')}
     >
       <Container>
         {isLoading
@@ -41,17 +54,19 @@ export const BreedSelect = (
         <Loader />
         :
         <Box className="contentBreedSelect">
-          <select
-            onChange={(e) => handleBreed(e.currentTarget.value)}
-          >
-            <option value="">Seleccione Raza</option>
-            {list.map((breed, i) => (
-              <option key={i} value={breed}>
-                {breed}
-              </option>
-            ))}
-          </select>
-          <BreedDog 
+          <InputSelect
+            label={t('COMMON.SELECT_RAZA')}
+            handleBreed={handleBreed}
+            list={list}
+          />
+          {subBreeds.length > 0 &&
+          <InputSelect
+            label={t('COMMON.SELECT_SUBRAZA')}
+            handleBreed={handleSubBreed}
+            list={subBreeds}
+          />}
+          <BreedDog
+            t={t}
             dogsImgList={dogsImgList}
             isLoadingBreed={isLoadingBreed}
             errorLoadBreed={errorLoadBreed}
@@ -60,7 +75,8 @@ export const BreedSelect = (
         </Box>
         }
         {errorLoading && 
-        <ErrorRequest 
+        <ErrorRequest
+          t={t}
           errorLoading={errorLoading}
           reload={fetchBreedList}
         />}
@@ -78,5 +94,6 @@ BreedSelect.propTypes = {
   errorLoading: PropTypes.bool.isRequired,
   selectedBreed: PropTypes.string.isRequired,
   isLoadingBreed: PropTypes.bool.isRequired,
-  errorLoadBreed: PropTypes.bool.isRequired
+  errorLoadBreed: PropTypes.bool.isRequired,
+  fetchSubBreed: PropTypes.func.isRequired
 };

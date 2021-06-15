@@ -7,7 +7,8 @@ import Button from '@material-ui/core/Button';
 export const ErrorRequest = (
   {
     errorLoading,
-    reload
+    reload,
+    t
   }) => {
 
   return(
@@ -23,11 +24,11 @@ export const ErrorRequest = (
             <Button
               onClick={reload}
             >
-              Reintentar
+              {t('COMMON.RETRY')}
             </Button>
           }
         >
-            Ha habido un error en la carga de los datos
+            {t('COMMON.ERROR_LOAD_DATA')}
         </Alert>
       </Snackbar>
     </>
@@ -36,5 +37,6 @@ export const ErrorRequest = (
 
 ErrorRequest.propTypes = {
   errorLoading: PropTypes.bool.isRequired,
-  reload: PropTypes.func.isRequired
+  reload: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 };

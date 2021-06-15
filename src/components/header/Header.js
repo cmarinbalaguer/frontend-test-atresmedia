@@ -1,17 +1,25 @@
 import PropTypes from 'prop-types'
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 import { AppBar, Box, IconButton, Toolbar, Typography } from "@material-ui/core"
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
-export const Header = ({ title, showHeaderIcons = true, goBackLink, lang= 'es' }) => {
+export const Header = ({ title, showHeaderIcons = true, goBackLink }) => {
 
   const history = useHistory();
+  const { i18n } = useTranslation();
+  const [lang, setLang] = useState(i18n.language);
+  
+  const langChangeHandler = () => {
+    setLang(lang === 'es' ? 'en' : 'es');
+    i18n.changeLanguage(lang === 'es' ? 'en' : 'es');
+  }
 
   return (
     <AppBar
       position="sticky"
-      // className={styles.header}
     >
       <Toolbar>
         {goBackLink &&
@@ -27,7 +35,7 @@ export const Header = ({ title, showHeaderIcons = true, goBackLink, lang= 'es' }
           </Typography>
           </Box>
           {showHeaderIcons && 
-          <IconButton onClick={console.log('langChangeHandler')}>
+          <IconButton onClick={langChangeHandler}>
             <Typography style={{color: '#fff'}} variant="h5">
               {lang} 
             </Typography>
@@ -41,6 +49,11 @@ export const Header = ({ title, showHeaderIcons = true, goBackLink, lang= 'es' }
   );
 }
 
+Header.defaultProps = {
+  goBackLink: false
+}
+
 Header.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  goBackLink: PropTypes.bool
 }

@@ -1,0 +1,10 @@
+{
+  "COMMON": {
+    "TITLE": "Imágenes de perros según su raza",
+    "SELECT_RAZA": "Seleccione raza",
+    "DETAIL_DOG": "Detalle de la imagen del perro",
+    "ERROR_LOAD_DATA": "Ha habido un error en la carga de los datos",
+    "RETRY": "Reintentar",
+    "SELECT_SUBRAZA": "Selecciona subraza"
+  }
+}

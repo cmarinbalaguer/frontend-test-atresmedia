@@ -3,38 +3,56 @@ import actionsTypes from '../constants/actions/breed'
 export function fetchBreed(breed) {
   return {
     type: actionsTypes.FETCH_BREED,
-    breed
+    payload: {breed}
   };
 }
 
-export function fetchBreedSucces(dogsImgList) {
+export function fetchBreedSuccess(dogsImgList) {
   return {
     type: actionsTypes.FETCH_BREED_SUCCESS,
-    dogsImgList,
-    isLoadingBreed: false,
-    errorLoadBreed: false
+    payload: {
+      dogsImgList,
+      isLoadingBreed: false,
+      errorLoadBreed: false
+    }
   };
 }
 
-export function loadBreedSucces(isLoadingBreed) {
+export function loadBreedSuccess(isLoadingBreed) {
   return {
     type: actionsTypes.LOAD_BREED_SUCCESS,
-    isLoadingBreed
+    payload: {isLoadingBreed}
   };
 }
 
-export function errorLoadBreedSucces(errorLoadBreed) {
+export function errorLoadBreedSuccess(errorLoadBreed) {
   return {
     type: actionsTypes.ERROR_LOAD_BREED_SUCCESS,
-    errorLoadBreed
+    payload: {errorLoadBreed}
+  };
+}
+
+export function fetchSubBreedSuccess(subBreeds) {
+  return {
+    type: actionsTypes.FETCH_SUB_BREED_SUCCESS,
+    payload: {subBreeds}
+  };
+}
+
+export function fetchSubBreed(subBreed, breed) {
+  return {
+    type: actionsTypes.FETCH_SUB_BREED,
+    payload: {subBreed, breed}
   };
 }
 
 const actions = {
   fetchBreed,
-  fetchBreedSucces,
-  loadBreedSucces,
-  errorLoadBreedSucces
+  fetchBreedSuccess,
+  loadBreedSuccess,
+  errorLoadBreedSuccess,
+  fetchSubBreedSuccess,
+  fetchSubBreed
 }
 
 export default actions;

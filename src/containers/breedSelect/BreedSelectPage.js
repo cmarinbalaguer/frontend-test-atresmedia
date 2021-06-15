@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchBreedList } from "../../actions/breedList";
-import { fetchBreed } from "../../actions/breed";
+import { fetchBreed, fetchSubBreed } from "../../actions/breed";
 import  * as BreedListSelectors from '../../selectors/breedList/breedList';
 import  * as BreedSelectors from '../../selectors/breed/breed';
 import { BreedSelect } from '../../components/breedSelect/BreedSelect';
@@ -10,7 +10,8 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     { 
       fetchBreedList,
-      fetchBreed
+      fetchBreed,
+      fetchSubBreed
     }, dispatch);
 
 const mapStateToProps = (state) => ({
@@ -21,6 +22,7 @@ const mapStateToProps = (state) => ({
   dogsImgList: BreedSelectors.breedSelector(state),
   isLoadingBreed: BreedSelectors.isLoadingBreedSelector(state),
   errorLoadBreed: BreedSelectors.errorLoadBreedSelector(state),
+  subBreeds: BreedSelectors.subBreedsSelector(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BreedSelect);
