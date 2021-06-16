@@ -14,12 +14,14 @@ export const BreedDog = (
     isLoadingBreed,
     errorLoadBreed,
     fetchBreed,
-    t
+    t,
+    page,
+    setPage
   }) => {
 
   const [imgList, setImgLis] = useState(dogsImgList);
   const itemsPerPage = 9;
-  const [page, setPage] = useState(1);
+  
   const [numberPage, setNumberPage] = useState(0);
 
   const handleChange = (e, value) => {
@@ -86,5 +88,7 @@ BreedDog.propTypes = {
   fetchBreed: PropTypes.func,
   t: PropTypes.func,
   isLoadingBreed: PropTypes.bool.isRequired,
-  errorLoadBreed: PropTypes.bool.isRequired
+  errorLoadBreed: PropTypes.bool.isRequired,
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired
 };

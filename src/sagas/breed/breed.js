@@ -34,7 +34,12 @@ export function* fetchBreed ({payload: {breed}}) {
 export function* fetchSubBreed ({payload: {subBreed, breed}}) {
   try {
     yield put(loadBreedSuccess(true));
-    const response = yield call(apiSubBreed.getImagesSubBreed, subBreed, breed);
+    let response = [];
+    if (subBreed.length) {
+      response = yield call(apiSubBreed.getImagesSubBreed, subBreed, breed);
+    } else {
+      response = yield call(apiBreed.getBreed, breed);
+    }
     yield put(fetchBreedSuccess(response.data.message));
   } catch (e) {
     yield put(loadBreedSuccess(false));

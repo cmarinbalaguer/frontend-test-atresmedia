@@ -29,11 +29,13 @@ export const BreedSelect = (
   }) => {
 
   const {t} = useTranslation();
-  const [breed, setBreed] = useState()
+  const [breed, setBreed] = useState();
+  const [page, setPage] = useState(1);
 
   const handleBreed = (breedId) => {
     fetchBreed(breedId);
     setBreed(breedId);
+    setPage(1);
   };
 
   const handleSubBreed = (subBreed) => {
@@ -71,6 +73,8 @@ export const BreedSelect = (
             isLoadingBreed={isLoadingBreed}
             errorLoadBreed={errorLoadBreed}
             fetchBreed={fetchBreed}
+            page={page}
+            setPage={setPage}
           />
         </Box>
         }
