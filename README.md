@@ -1,4 +1,4 @@
-# FRONT-END TEST DOG-BREDD
+# FRONT-END TEST DOG-BREED
 
 La prueba esta desarrollada con React y Redux para el manejo del estado de la aplicación. Y para hacer la comunicación y peticiones a la Api se ha utilizado Redux-Sagas.
 
